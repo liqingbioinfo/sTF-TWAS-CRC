@@ -25,9 +25,9 @@ Following [GTEx RNA-seq analyses pipelines](https://github.com/broadinstitute/gt
 For more information, please refer to our previous publication [PMID: 36402776](https://pubmed.ncbi.nlm.nih.gov/36402776/) and github repository [sTF-TWAS](https://github.com/XingyiGuo/TF-TWAS).
 
 - Executive code:
-1. run_expression_peer.R \
-2. sTFTWAS_models.R \
-3. buildDB.R \
+1. run_expression_peer.R
+2. sTFTWAS_models.R
+3. buildDB.R 
 
 ### Identification of CRC risk events through associations
 We utilized the weight matrix and the summary statistics from CRC GWAS datasets consisting of 186,072 individuals of European ancestry and 72,272 individuals of East Asian ancestry, we evaluated the association between gene expression (or AS, APA) and CRC risk under the sTF-TWAS framework.
