@@ -15,34 +15,35 @@ In this work, we analyzed 218 TF chromatin immunoprecipitation sequencing (ChIP-
 
 ## Methods
 ### Identification of CRC risk TFs
-We used our recently developed generalized mixed model approach7 to investigate associations of CRC risk with variations of TF-DNA binding by a single TF. Please refer to our previous publications [PMID: 34518541](https://pubmed.ncbi.nlm.nih.gov/34518541/) and github repository(https://github.com/XingyiGuo/BC-TFvariants/) for more information.
+We used our recently developed generalized mixed model approach7 to investigate associations of CRC risk with variations of TF-DNA binding by a single TF. Please refer to our previous publication [PMID: 34518541](https://pubmed.ncbi.nlm.nih.gov/34518541/) and github repository [BC-TFvariants](https://github.com/XingyiGuo/BC-TFvariants/) for more information.
 
 ### Constructions of sTFTWAS models
 We utilized the weight matrix and the summary statistics from CRC GWAS datasets consisting of 186,072 individuals of European ancestry and 72,272 individuals of East Asian ancestry, we evaluated the association between gene expression (or AS, APA) and CRC risk under the sTF-TWAS framework.
 
-- Executive code: xxx
-- Input files:
-1)
-2)
-- Output files
+Following [GTEx RNA-seq analyses pipelines](https://github.com/broadinstitute/gtex-pipeline), Events were quantile normalized and inverse normal transformed. The potential confounding factors (such as top five principal components (PCs), gender, potential batch effects, PEER factors) for events have been removed using [PEER](https://github.com/PMBio/peer).
+
+For more information, please refer to our previous publication [PMID:36402776](https://pubmed.ncbi.nlm.nih.gov/36402776/) and github repository [sTF-TWAS](https://github.com/XingyiGuo/TF-TWAS).
+
+- Executive code:
+1. run_expression_peer.R
+2. sTFTWAS_models.R
+3. buildDB.R
 
 ### Identification of CRC risk events through associations
 We utilized the weight matrix and the summary statistics from CRC GWAS datasets consisting of 186,072 individuals of European ancestry and 72,272 individuals of East Asian ancestry, we evaluated the association between gene expression (or AS, APA) and CRC risk under the sTF-TWAS framework.
 
-- Executive code: xxx
-- Input files:
-1)
-2)
-- Output files
+- Executive code:
+conda activate [spredixcan](https://github.com/hakyimlab/MetaXcan/blob/master/software/SPrediXcan.py)
+./path/to/src/MetaXcan/software/SPrediXcan.py --model_db_path model.db --covariance model_cov.txt.gz --gwas_folder ./GWAS_SS/ --gwas_file_pattern ".*gz" --snp_column SNP --effect_allele_column A1 --non_effect_allele_column A2 --beta_column BETA  --pvalue_column P --output_file  model.TWAS --verbosity 1
 
-### Identification of CRC risk events through associations
+
+### Differential gene expression analysis from single cell data
 We conducted differential expression analysis across colorectal cancer (CRC) developmental stages to identify key genes associated with tumorigenesis. Using a pseudobulk gene count matrix derived from single-cell RNA sequencing (scRNA-seq) data, we applied DESeq2 to detect differentially expressed genes between normal tissues and precancerous/cancerous stages along both the normal-serrated polyp-carcinoma and normal-adenoma-carcinoma pathways.
 
-- Executive code: xxx
-- Input files:
-1)
-2)
-- Output files
+- Executive code:
+
+### Data Availability
+The GWAS summary statistics are available at the GWAS catalog under accession number GCST90129505 (https://www.ebi.ac.uk/gwas/studies/GCST90129505). The RNA-seq data and genotype data of subjects of East Asian ancestry from the ACCC is in the process of depositing to NCBI database of Genotypes and Phenotypes (dbGaP, accession number phs002813.v1.p1). The data from the Genotype-Tissue Expression (GTEx, version 8) project used in this study are publicly available at the dbGaP under accession number phs000424.v8.p2 (https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000424.v8.p2). The transcriptome and genotype data as well as the sample covariates from the BarcUVa-Seq project can be accessed at the dbGaP under accession number phs003338.v1.p1 (https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs003338.v1.p1). Single-cell RNA-sequencing datasets from colon tissues of 31 individuals were obtained from the Colorectal Molecular Atlas Project (COLON MAP). 
 
 ## Contact
 Qing Li: qing.li@vumc.org
