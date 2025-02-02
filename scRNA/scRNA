@@ -1,1 +1,19 @@
+setwd("/nobackup/sbcs/XXX/")
+library(Seurat)
+library(DESeq2)
 
+# Read data
+scRNA <- readRDS(scRNA.rds")
+
+# Pseudobulk the counts based on Sample ID and Sample Classification
+pseudo_seurat_obj <- AggregateExpression(scRNA, assays = "RNA", return.seurat = T, group.by = c("HTAN.Specimen.ID", "Sample_Classification"))
+tail(Cells(pseudo_seurat_obj))
+
+
+# Perform DE analysis on the pseudobulk level between Stage1 and Stage2
+
+Idents(pseudo_seurat_obj) <- "Sample_Classification"
+
+bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "Stage1", ident.2 = "Stage2", test.use = "DESeq2")
+head(bulk.stage1.stage2.de, n = 15)
+write.csv(bulk.stage1.stage2.de, "stage1_stage2_deseq2.csv", row.names = TRUE)
