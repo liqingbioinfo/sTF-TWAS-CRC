@@ -1,6 +1,8 @@
 setwd("/nobackup/sbcs/XXX/")
 library(Seurat)
 library(DESeq2)
+library(readr)
+library(readxl)
 
 # Read data
 scRNA <- readRDS(scRNA.rds")
@@ -29,3 +31,11 @@ bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "Stag
 # save the DEG analysis results
 head(bulk.stage1.stage2.de, n = 15)
 write.csv(bulk.stage1.stage2.de, "stage1_stage2_deseq2.csv", row.names = TRUE)
+
+# Compute Adjusted P value
+data <- read_excel("C:/Users/NL_ABS_riskgenes.xlsx")
+p_adjusted <- p.adjust(data$p_val,method="BH")
+write.csv(p_adjusted, "C:/Users/NL_ABS_riskgenes_adjustedp.csv", row.names = TRUE)
+# replace the NL_ABS_riskgenes.xlsx with risk genelist in other cell type across different
+stages
+# replace method = "BH" with other methods, like FDR
