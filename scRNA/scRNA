@@ -2,7 +2,6 @@ setwd("/nobackup/sbcs/XXX/")
 library(Seurat)
 library(DESeq2)
 
-
 # Read data
 scRNA <- readRDS(scRNA.rds")
 
