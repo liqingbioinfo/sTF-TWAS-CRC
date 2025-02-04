@@ -15,7 +15,7 @@ scRNA <- subset(scRNA, `Classification` == "NL")
 scRNA <- subset(scRNA, `Cell_type` == "ABS")
 # replace Cell type from ABS with GOB, STM, SSC, and ASC
 
-# Pseudobulk the counts based on Sample ID and Sample Classification
+# Pseudobulk the counts based on Sample ID
 pseudo_seurat_obj <- AggregateExpression(scRNA, assays = "RNA", return.seurat = T, group.by = c("Sample_ID"))
 
 # Check the data structure
