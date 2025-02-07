@@ -3,7 +3,7 @@
 ## Overview
 In this work, we analyzed 218 TF chromatin immunoprecipitation sequencing (ChIP-Seq) datasets from colorectal cancer (CRC) related cells, along with GWAS data comprising 100,204 CRC cases and 154,587 controls of East Asian and European ancestries, using the generalized mixed models we developed. Under our sTF-TWAS framework, we performed trans-ancestry analyses to evaluate associations between genetically predicted gene expression, alternative splicing (AS), and alternative polyadenylation (APA) with CRC risk, using RNA-seq data generated in normal colon tissue samples obtained from 364 individuals of Asian-ancestry and 707 individuals of European-ancestry. Differential gene expression analyses across colon normal, adenoma and carcinoma tissues were conducted using single cell RNA-seq data from over 100 individuals. Gene functional validation was performed using CRISPR-Cas9 knockdown in CRC cell lines.
 
-![My Image](./Figures/Supplementary Figure 2-1.png)
+![My Image](./Figures/Supplementary_Figure_2.png)
 
 **Step1:** Identify the risk TFs for CRC.
 
