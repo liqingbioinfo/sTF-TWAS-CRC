@@ -6,19 +6,22 @@ In our study, we included 31 normal colon tissues, 29 serrated polyps,
 15 microsatellite instability-high (MSI-H).
 
 1. For absorptive cells(ABS cell), we did these comparisons:
-ABS in normal colon tissue(NL) vs Other cell types in NL,
-ABS in serrated polyps(SER) vs Other cell types in SER,
-ABS in conventional adenoma(AD) vs Other cell types in AD;
 ABS in NL vs ABS in SER,
 ABS in NL vs ABS in AD,
 ABS in NL vs serrated specific cells(SSC) in SER,
 ABS in NL vs adenoma specific cells(ASC) in AD;
 
 2. For goblet cells(GOB), we did these comparisons:
-GOB in NL vs Other cell types in NL,
-GOB in SER vs Other cell types in SER,
-GOB in AD vs Other cell types in AD;
 GOB in NL vs GOB in SER,
 GOB in NL vs GOB in AD,
 GOB in NL vs SSC in SER,
 GOB in NL vs ASC in AD;
+
+3. For serrated polyp specific cells, we did these comparisions:
+SSC in SER vs MSI-H;
+SSC in SER vs MSS;
+
+4. For adenoma specifi cells, we did these comparisions: 
+ASC in AD vs MSI-H;
+ASC in AD vs MSS.
+
