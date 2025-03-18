@@ -68,6 +68,102 @@ bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "NL",
 head(bulk.stage1.stage2.de, n = 15)
 write.csv(bulk.stage1.stage2.de, "NL_SER_ABS_deseq2.csv", row.names = TRUE)
 
+# Read data
+scRNA <- readRDS(scRNA.rds")
+# Subset specific cell type
+scRNA <- subset(scRNA, Cell_type == "ABS" | Cell_type == "ASC")
+# Pseudobulk the counts based on Sample ID
+pseudo_seurat_obj <- AggregateExpression(scRNA, assays = "RNA", return.seurat = T, group.by = c("Sample_ID"))
+# Check the data structure
+tail(Cells(pseudo_seurat_obj))
+# Perform DE analysis on the pseudobulk level between Stage1 and Stage2
+Idents(pseudo_seurat_obj) <- "Sample_Classification"
+# Perform the DEG analysis
+bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "NL", ident.2 = "AD", test.use = "DESeq2")
+# save the DEG analysis results
+head(bulk.stage1.stage2.de, n = 15)
+write.csv(bulk.stage1.stage2.de, "NL_AD_ASC_deseq2.csv", row.names = TRUE)
+
+# Read data
+scRNA <- readRDS(scRNA.rds")
+# Subset specific cell type
+scRNA <- subset(scRNA, Cell_type == "GOB" | Cell_type == "SSC")
+# Pseudobulk the counts based on Sample ID
+pseudo_seurat_obj <- AggregateExpression(scRNA, assays = "RNA", return.seurat = T, group.by = c("Sample_ID"))
+# Check the data structure
+tail(Cells(pseudo_seurat_obj))
+# Perform DE analysis on the pseudobulk level between Stage1 and Stage2
+Idents(pseudo_seurat_obj) <- "Sample_Classification"
+# Perform the DEG analysis
+bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "NL", ident.2 = "SER", test.use = "DESeq2")
+# save the DEG analysis results
+head(bulk.stage1.stage2.de, n = 15)
+write.csv(bulk.stage1.stage2.de, "NL_SER_SSC_deseq2.csv", row.names = TRUE)
+
+# Read data
+scRNA <- readRDS(scRNA.rds")
+# Subset specific cell type
+scRNA <- subset(scRNA, Cell_type == "SSC")
+# Pseudobulk the counts based on Sample ID
+pseudo_seurat_obj <- AggregateExpression(scRNA, assays = "RNA", return.seurat = T, group.by = c("Sample_ID"))
+# Check the data structure
+tail(Cells(pseudo_seurat_obj))
+# Perform DE analysis on the pseudobulk level between Stage1 and Stage2
+Idents(pseudo_seurat_obj) <- "Sample_Classification"
+# Perform the DEG analysis
+bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "SER", ident.2 = "MSS", test.use = "DESeq2")
+# save the DEG analysis results
+head(bulk.stage1.stage2.de, n = 15)
+write.csv(bulk.stage1.stage2.de, "SER_MSS_deseq2.csv", row.names = TRUE)
+
+# Read data
+scRNA <- readRDS(scRNA.rds")
+# Subset specific cell type
+scRNA <- subset(scRNA, Cell_type == "SSC")
+# Pseudobulk the counts based on Sample ID
+pseudo_seurat_obj <- AggregateExpression(scRNA, assays = "RNA", return.seurat = T, group.by = c("Sample_ID"))
+# Check the data structure
+tail(Cells(pseudo_seurat_obj))
+# Perform DE analysis on the pseudobulk level between Stage1 and Stage2
+Idents(pseudo_seurat_obj) <- "Sample_Classification"
+# Perform the DEG analysis
+bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "SER", ident.2 = "MSI-H", test.use = "DESeq2")
+# save the DEG analysis results
+head(bulk.stage1.stage2.de, n = 15)
+write.csv(bulk.stage1.stage2.de, "SER_MSI-H_deseq2.csv", row.names = TRUE)
+
+# Read data
+scRNA <- readRDS(scRNA.rds")
+# Subset specific cell type
+scRNA <- subset(scRNA, Cell_type == "ASC")
+# Pseudobulk the counts based on Sample ID
+pseudo_seurat_obj <- AggregateExpression(scRNA, assays = "RNA", return.seurat = T, group.by = c("Sample_ID"))
+# Check the data structure
+tail(Cells(pseudo_seurat_obj))
+# Perform DE analysis on the pseudobulk level between Stage1 and Stage2
+Idents(pseudo_seurat_obj) <- "Sample_Classification"
+# Perform the DEG analysis
+bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "SER", ident.2 = "MSS", test.use = "DESeq2")
+# save the DEG analysis results
+head(bulk.stage1.stage2.de, n = 15)
+write.csv(bulk.stage1.stage2.de, "AD_MSS_deseq2.csv", row.names = TRUE)
+
+# Read data
+scRNA <- readRDS(scRNA.rds")
+# Subset specific cell type
+scRNA <- subset(scRNA, Cell_type == "ASC")
+# Pseudobulk the counts based on Sample ID
+pseudo_seurat_obj <- AggregateExpression(scRNA, assays = "RNA", return.seurat = T, group.by = c("Sample_ID"))
+# Check the data structure
+tail(Cells(pseudo_seurat_obj))
+# Perform DE analysis on the pseudobulk level between Stage1 and Stage2
+Idents(pseudo_seurat_obj) <- "Sample_Classification"
+# Perform the DEG analysis
+bulk.stage1.stage2.de <- FindMarkers(object = pseudo_seurat_obj, ident.1 = "SER", ident.2 = "MSI-H", test.use = "DESeq2")
+# save the DEG analysis results
+head(bulk.stage1.stage2.de, n = 15)
+write.csv(bulk.stage1.stage2.de, "AD_MSI-H_deseq2.csv", row.names = TRUE)
+
 # Compute Adjusted P value
 data <- read_excel("C:/Users/NL_ABS_riskgenes.xlsx")
 p_adjusted <- p.adjust(data$p_val,method="BH")
