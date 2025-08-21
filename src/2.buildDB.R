@@ -8,8 +8,8 @@ args <- commandArgs(trailingOnly=T)
 
 ###### I. paramter ###### 
 model_prefix <- "model"
-wk="../results/"
-
+#wk="/nobackup/sbcs/liq17/CRC_TF_TWAS_zhishan2024/data_for_ocean_code/resutls/"
+wk="../data/For_build_DB/"
 
 ######II. Collect all model summary files [ensure one ENSG name]
 model_summary <- matrix(integer(0), nrow = 0, ncol = 6) %>% as.data.frame()
@@ -80,8 +80,8 @@ for(i in 1:22){
 		cat("Warning: ", model_prefix, "_chr", as.character(chrom), "_covariances.txt does not exit")
 	}
 }
-model_covars <- model_covars[!is.na(model_covars$corvarianceValues),]
-model_covars_unique <- model_covars %>% distinct(gene_id, rsid1, rsid2, .keep_all=TRUE)
+model_covars <- model_covars[!is.na(model_covars$VALUE),]
+model_covars_unique <- model_covars %>% distinct(GENE, RSID1, RSID2, .keep_all=TRUE)
 colnames(model_covars_unique) <-c("GENE","RSID1","RSID2","VALUE")
 fwrite(model_covars_unique, paste0(wk, model_prefix, "_cov.txt"), sep=" ", row.names = FALSE, col.names = TRUE)
 system(paste("gzip", paste0(wk, model_prefix, "_cov.txt")))
