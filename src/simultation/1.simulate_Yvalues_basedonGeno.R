@@ -10,71 +10,75 @@ library(lme4)       # for mixed model
 library(parallel)
 library(dplyr)
 args = commandArgs(trailingOnly = TRUE)
-setwd("/data/sbcs/GuoLab/backup/liq17/CRC_TF_TWAS_zhishan2024/NC_revision_OceanCode/NC_revision")
+setwd("/CRC_TF_TWAS_zhishan2024/NC_revision_OceanCode/v2_NC_revision/")
 
-# Input TF annotation matrix
-TFs_annot <- as.data.frame(fread("./data/1_22.annot.txt",header=T))
-names(TFs_annot)
-## remove duplicate variants 
-TFs_annot <- TFs_annot[!duplicated(TFs_annot$SNP),] #MarkerName	Allele1	Allele2	Freq1	FreqSE	MinFreq	MaxFreq	Effect	StdErr	P-value	Direction	HetISq	HetChiSq	HetDf	HetPVal	TotalSampleSize
-TFs_annot<-TFs_annot[TFs_annot$CHR>=1 & TFs_annot$CHR<=22,]
+### Load TF annotation matrix
+TFs_annots<-as.data.frame(fread(paste0("./84Tracks/annots/1_22.annot.txt")))
+# remove duplicate variants 
+TFs_annots <- TFs_annots[!duplicated(TFs_annots$SNP),]
+TFs_annots<-TFs_annots[TFs_annots$CHR>=1 & TFs_annots$CHR<=22,]
 
-# load Genotype [RAM 120G OK, 80G killed]
-#geno_raw <- fread("./data/1000G_ref_hg38.traw") # Ref coded as 2 and alt coded as 0
-#geno_raw_with_annot <- geno_raw[rowSums(geno_raw[ , 7:ncol(geno_raw)]) != 0, ] # Select all rows with at least 1 annot
-#rownames(geno_raw_with_annot) <- geno_raw_with_annot$SNP
-#geno_clean =2 - geno_raw_with_annot[ , 7:ncol(geno_raw_with_annot)] # swith ref and alt code
-#rm(geno_raw)
-#rm(geno_raw_with_annot)
-#tmp = sub("_(.*)", "", colnames(geno_clean))
-#colnames(geno_clean) <- tmp
-
-#### simulate Y_ij based on beta_1 and beta_0
-#### Y_ij = beta_1 x X_ij + episilon, beta_1 from a list and episilong ~ N(0, 1)
-tf_cols=84
-n_round=60
-h2s=c(0.05, 0.3, 0.6)
-h2 = h2s[as.numeric(args[1])]
-beta_1 = 1
-set.seed(250822)
-sim_y_list = list()
-sim_track_name = vector(mode="character", n_round)
-lmer_res_list = list()
+### Select causal SNPs and make causal SNP annotation files
+set.seed(20250828) 
+n_causal=as.numeric(args[1])
+n_round=50
+beta_1=1
+h2=0.5
+SNP_causal_pool = TFs_annots[TFs_annots$ANNO==1,]$SNP
 sim_y_matrix = matrix(integer(0), nrow = n_round , ncol= 489) %>% as.data.frame()
 
-for (sim_i in 1:n_round) {
-  print(paste0("sim round " , as.character(sim_i), "/", as.character(n_round)))
-  #sim_i_track_index = sample(5:dim(TFs_annot)[2], 1)
-  #sim_i_track_name = colnames(TFs_annot)[sim_i_track_index]
-  #sim_track_name[sim_i] <-sim_i_track_name #record track name
-  sim_i_track_name <- colnames(TFs_annot)[sim_i+4]
-  sim_track_name[sim_i] <- sim_i_track_name
-  geno_annot_clean=data.frame()
-  for(chr in 1:22){
-    chr_annot = TFs_annot[(TFs_annot$CHR==chr) & (TFs_annot[[sim_i_track_name]]==1), ]$SNP
-    print(paste0(sim_i_track_name, " : Num of annotated SNPs is ",length(chr_annot), " for ", chr))
-    chr_geno=data.frame(fread(paste0("/data/sbcs/GuoLab/backup/liq17/ref/Alkesgroup/1000G_EUR_Phase3_plink_hg38/processed/",chr,".nodup.sorted.maf01.LD50_5_01.1000G_hg38.filtered.traw")))
-    chr_geno_annot = chr_geno[chr_geno$SNP %in% chr_annot, ]
-    rownames(chr_geno_annot) <- chr_geno_annot$SNP
-    chr_geno_annot_clean <- chr_geno_annot[, 7:dim(chr_geno_annot)[2]] #select only genotype
-    geno_annot_clean=rbind(geno_annot_clean, chr_geno_annot_clean)
-	rm(chr_geno_annot)
-  }
-  print(paste0("Total num of annotated SNPs is ",dim(geno_annot_clean)[1]))
-  geno_annot_r0a1 <- 2 - geno_annot_clean  ##Chek the coding for ref and alt from *.traw and *.tped file
-  tmp = sub("_(.*)", "", colnames(geno_annot_r0a1))
-  colnames(geno_annot_r0a1) <- tmp
-  sample_size= dim(geno_annot_r0a1)[2]
-  y_geno <-colSums(beta_1 * geno_annot_r0a1)
-  y_err <- rnorm(sample_size, mean=0, sd=sqrt((1-h2)/h2*var(y_geno)))
-  y_sim = y_geno + y_err
-  #y_sim=y_geno
-  y_sim_cc <- ifelse(y_sim >= median(y_sim), 1, 2) #1 for case, 2 for control
-  sim_y_matrix[sim_i, ]= y_sim_cc
+# start from TFs_annots with CHR,BP,SNP,CM
+DT <- as.data.table(TFs_annots[, c("CHR","BP","SNP","CM")])
+simNames <- paste0("SIM", seq_len(n_round))
+# store each round’s sampled SNPs for validation
+causal_list <- vector("list", n_round)
+for (sim_i in seq_len(n_round)) {
+  SNP_causal <- sample(SNP_causal_pool, n_causal)
+  causal_list[[sim_i]] <- SNP_causal
+  nm <- simNames[sim_i]
+  DT[, (nm) := 0L]
+  DT[data.table(SNP = SNP_causal), on = .(SNP), (nm) := 1L]
+}
+# back to data.frame (optional)
+SNP_causal_annots <- as.data.frame(DT)
+#Validate SNPs: all( (SNP_causal_annots$SNP %in% causal_list[[2]]) == (SNP_causal_annots$SIM2 == 1) )
+
+for(chr in 1:22){
+	SNP_causal_annots_per_chr = SNP_causal_annots[SNP_causal_annots$CHR==as.character(chr), ]
+	print(dim(SNP_causal_annots_per_chr))
+	fwrite(SNP_causal_annots_per_chr, paste0("./84Tracks/annots_sim", n_causal,"/",chr,".annot.txt") ,sep="\t")
+}
+
+for(sim_i in 1:n_round){
+	simName=paste0("SIM", sim_i)
+	# >> make ldscores absed on the simulated annotations
+	### Simulate Y based on causal SNPs
+	SNP_causal_geno=data.frame()
+	for(chr in 1:22){
+		SNP_causal_chr = SNP_causal_annots[(SNP_causal_annots[simName]==1) & (SNP_causal_annots$CHR == as.character(chr)), ]$SNP
+		print(paste0("Num of annotated SNPs is for ", chr, " is ",length(SNP_causal_chr)))
+		chr_geno=data.frame(fread(paste0("/ref/Alkesgroup/1000G_EUR_Phase3_plink_hg38/processed/",chr,".nodup.sorted.1000G_hg38.traw")))
+		SNP_causal_chr_geno = chr_geno[chr_geno$SNP %in% SNP_causal_chr, ]
+		rownames(SNP_causal_chr_geno) <- SNP_causal_chr_geno$SNP
+		SNP_causal_chr_geno_clean <- SNP_causal_chr_geno[, 7:dim(SNP_causal_chr_geno)[2]] #select only genotype
+		SNP_causal_geno=rbind(SNP_causal_geno, SNP_causal_chr_geno_clean)
+		rm(chr_geno)
+	}
+	print(paste0("Total num of annotated SNPs is ",dim(SNP_causal_geno)[1]))
+	SNP_causal_geno_r0a1 <- 2 - SNP_causal_geno  ##Chek the coding for ref and alt from *.traw and *.tped file
+	tmp = sub("_(.*)", "", colnames(SNP_causal_geno_r0a1))
+	colnames(SNP_causal_geno_r0a1) <- tmp
+	sample_size= dim(SNP_causal_geno_r0a1)[2]
+	y_geno <-colSums(beta_1 * SNP_causal_geno_r0a1)
+	y_err <- rnorm(sample_size, mean=0, sd=sqrt((1-h2)/h2*var(y_geno)))
+	y_sim = y_geno + y_err
+	#y_sim=y_geno
+	y_sim_cc <- ifelse(y_sim >= median(y_sim), 1, 2) #1 for case, 2 for control
+	sim_y_matrix[sim_i, ]= y_sim_cc
 }
 sim_y_matrix_t = transpose(sim_y_matrix)
 sim_y_df_t <- as.data.frame(sim_y_matrix_t)  #sample N x simulate times t
 sim_y_df_t["IID"]=names(y_sim_cc)  # Add IID column
 sim_y_df_t_IID = setcolorder(sim_y_df_t, c("IID", setdiff(names(sim_y_df_t), "IID"))) # reorder col
-colnames(sim_y_df_t_IID) <- c("IID", sim_track_name)
-fwrite(sim_y_df_t_IID,paste0("./simulation_values_res/sim_y_values/beta1_",beta_1,"_h2_",h2,".sim_y.txt"), sep="\t", row.names = FALSE, col.names = TRUE)
+colnames(sim_y_df_t_IID) <- c("IID", simNames)
+fwrite(sim_y_df_t_IID,paste0("./simulation_values_res/sim_y_values/beta1_1_h2_",h2,"_SNPs_",n_causal,".sim_y.txt"), sep="\t", row.names = FALSE, col.names = TRUE)
