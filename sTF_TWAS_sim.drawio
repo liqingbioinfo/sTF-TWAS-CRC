@@ -1,0 +1,160 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.1.0">
+  <diagram name="Page-1" id="jkNZbB2CqMIig_Lj23-p">
+    <mxGraphModel dx="1333" dy="628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=60;exitDy=30;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-1" target="-tTcmWf8NTvGwCKF5-jG-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-1" value="" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="250" y="60" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-2" value="" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="270" y="90" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-3" value="" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="290" y="120" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-5" value="84 TFs bed files downloaded from Cistrom db (GRCh 38)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="110" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-7" value="Merge regions from 84 files:&lt;div&gt;&amp;lt;&amp;gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="90" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-8" target="-tTcmWf8NTvGwCKF5-jG-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-8" value="merged_all.sorted.bed" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="690" y="84" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-12" value="Input files" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="230" y="10" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-14" value="Output file" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="680" y="10" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-15" target="-tTcmWf8NTvGwCKF5-jG-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-15" value="ldsc make annots" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="235" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-19" target="-tTcmWf8NTvGwCKF5-jG-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-19" value="1~22 annotation files for super TF regions" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="700" y="230" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-20" target="-tTcmWf8NTvGwCKF5-jG-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-20" value="1.simulate_Yvalues_basedonGeno.R" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="360" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=130;exitDy=44.5;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-21" target="-tTcmWf8NTvGwCKF5-jG-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-21" value="annotation for each SIM_i for K SNPs" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="700" y="354" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-23" value="ldsc make ldscores" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="367" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-24" target="-tTcmWf8NTvGwCKF5-jG-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-24" value="Y values for SIM_i for K SNPs&amp;nbsp;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="700" y="450" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-25" value="2.plink_glm.sh" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="564" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=130;exitDy=44.5;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-26" target="-tTcmWf8NTvGwCKF5-jG-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-26" target="-tTcmWf8NTvGwCKF5-jG-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-26" value="logisistic.hybrid (glm results)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="700" y="560" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-27" value="3.glm_association.R" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="710" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-28" target="-tTcmWf8NTvGwCKF5-jG-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-28" value="GMM resutls (slope, se)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="700" y="706" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-29" target="-tTcmWf8NTvGwCKF5-jG-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-29" value="LDSC" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="910" y="573" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-30" value="LDSC results (coeff, se)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="955" y="705" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-31" value="4.glm_ldsc_res.R" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="850" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-32" value="GMM v.s. LDSC" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="835" y="956" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-5" target="-tTcmWf8NTvGwCKF5-jG-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-7" target="-tTcmWf8NTvGwCKF5-jG-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-20" target="-tTcmWf8NTvGwCKF5-jG-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-25" target="-tTcmWf8NTvGwCKF5-jG-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-48">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-48" value="ldscores for each SIM_i annotation" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=19;" vertex="1" parent="1">
+          <mxGeometry x="955" y="460" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=55.5;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-23" target="-tTcmWf8NTvGwCKF5-jG-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-27" target="-tTcmWf8NTvGwCKF5-jG-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-31" target="-tTcmWf8NTvGwCKF5-jG-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=140;exitDy=63;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-60" target="-tTcmWf8NTvGwCKF5-jG-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="391" />
+              <mxPoint x="290" y="594" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-60" value="1000G,&amp;nbsp; EUR, 489 samples, genotype" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="80" y="328" width="140" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="-tTcmWf8NTvGwCKF5-jG-61" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0;exitDx=140;exitDy=63;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-tTcmWf8NTvGwCKF5-jG-60" target="-tTcmWf8NTvGwCKF5-jG-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="450" as="sourcePoint" />
+            <mxPoint x="640" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
